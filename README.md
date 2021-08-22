@@ -23,10 +23,10 @@ Displays information about me and my work experience, as well as provides my con
 ## Screenshots
 Below is a screenshot of the project:
 
-![Image of html](./images/ppw1.jpg)
+<!-- ![Image of html](./images/ppw1.jpg)
 
 
-![Image of html](./images/ppw2.jpg)
+![Image of html](./images/ppw2.jpg) -->
 
 
 ---
