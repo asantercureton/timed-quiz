@@ -2,6 +2,7 @@
 var quizContainer = document.querySelector('quiz');
 var submitButton = document.querySelector('submit');
 var resultsContainer = document.querySelector('results');
+var timer = document.querySelector('timer');
 
 
 // Need to create the quiz
@@ -16,7 +17,7 @@ function displayResults() {
 };
 
 
-// Display the quiz
+// Display the quiz itself
 createQuiz();
 
 
