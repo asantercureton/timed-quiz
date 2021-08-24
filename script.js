@@ -1,8 +1,10 @@
 // Identify variables from html
-var quizContainer = document.querySelector('quiz');
-var submitButton = document.querySelector('submit');
-var resultsContainer = document.querySelector('results');
-var timer = document.querySelector('timer');
+var quizContainer = document.querySelector('#quiz');
+var submitButton = document.querySelector('#submit');
+var resultsContainer = document.querySelector('#results');
+var timeLeft = 60000;
+currentQuestion = 0;
+nextQuestion();
 
 
 // Need to create the quiz
@@ -13,6 +15,13 @@ function createQuiz() {
 
 // Need to display the results of the quiz
 function displayResults() {
+
+};
+
+// Need a timer for countdown of duration of game
+function timer() {
+    var timer = document.querySelector('#timer');
+    timer.innerHTML = "This is where the timer goes";
 
 };
 
@@ -35,8 +44,9 @@ var myQuestions = [
             A: "A",
             B: "B",
             C: "C",
+            D: "D",
         },
-        correctAnswer: "A"
+        correctAnswer: 1
     },
     // question 2 with answer choices and correct answer
     {
@@ -45,8 +55,9 @@ var myQuestions = [
             A: "A",
             B: "B",
             C: "C",
+            D: "D",
         },
-        correctAnswer: "B"
+        correctAnswer: 2
     },
     // question 3 with answer choices and correct answer
     {
@@ -55,8 +66,9 @@ var myQuestions = [
             A: "A",
             B: "B",
             C: "C",
+            D: "D",
         },
-        correctAnswer: "C"
+        correctAnswer: 3
     },
     // question 4 with answer choices and correct answer
     {
@@ -65,8 +77,9 @@ var myQuestions = [
             A: "A",
             B: "B",
             C: "C",
+            D: "D",
         },
-        correctAnswer: "C"
+        correctAnswer: 4
     },
     // question 5 with answer choices and correct answer
     {
@@ -75,8 +88,9 @@ var myQuestions = [
             A: "A",
             B: "B",
             C: "C",
+            D: "D",
         },
-        correctAnswer: "B"
+        correctAnswer: 3
     },
     // question 6 with answer choices and correct answer
     {
@@ -85,8 +99,9 @@ var myQuestions = [
             A: "A",
             B: "B",
             C: "C",
+            D: "D",
         },
-        correctAnswer: "A"
+        correctAnswer: 2
     },
 ];
 
