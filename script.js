@@ -1,37 +1,43 @@
-// Identify variables from html
-var quizContainer = document.querySelector('#quiz');
-var submitButton = document.querySelector('#submit');
-var resultsContainer = document.querySelector('#results');
-var timeLeft = 60000;
-currentQuestion = 0;
+// Identify variables
+var startButton = document.querySelector('#startBtn');
+var startPage = document.querySelector('#startPage');
+var timer = document.querySelector('#timer');
+var currentQuestion = 0;
 nextQuestion();
+var message = 'HELLO';
 
 
-// Need to create the quiz
-function createQuiz() {
-    // for loop to cycle through each question??
-};
 
+// Once start button is clicked, start timer and present first question
+startButton.addEventListener('click', currentQuestion) {
+    // Timer that counts down from 60
+    function countdown() {
+        var timeLeft = 60;
 
-// Need to display the results of the quiz
-function displayResults() {
+        // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+        var timeInterval = setInterval(function () {
+            // As long as the `timeLeft` is greater than 1
+            if (timeLeft > 1) {
+                // Set the `textContent` of `timerEl` to show the remaining seconds
+                timerEl.textContent = timeLeft + ' seconds remaining';
+                // Decrement `timeLeft` by 1
+                timeLeft--;
+            } else if (timeLeft === 1) {
+                // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
+                timerEl.textContent = timeLeft + ' second remaining';
+                timeLeft--;
+            } else {
+                // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+                timerEl.textContent = '';
+                // Use `clearInterval()` to stop the timer
+                clearInterval(timeInterval);
+                // Call the `displayMessage()` function
+                displayMessage();
+            }
+        }, 1000);
+    }
+}
 
-};
-
-// Need a timer for countdown of duration of game
-function timer() {
-    var timer = document.querySelector('#timer');
-    timer.innerHTML = "This is where the timer goes";
-
-};
-
-
-// Display the quiz itself
-createQuiz();
-
-
-// Display the results once submit button is clicked
-submitButton.addEventListener('click', displayResults);
 
 
 // Displaying the questions using objects and arrays
@@ -104,4 +110,3 @@ var myQuestions = [
         correctAnswer: 2
     },
 ];
-
