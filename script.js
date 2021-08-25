@@ -1,112 +1,87 @@
 // Identify variables
-var startButton = document.querySelector('#startBtn');
-var startPage = document.querySelector('#startPage');
-var timer = document.querySelector('#timer');
-var currentQuestion = 0;
-nextQuestion();
-var message = 'HELLO';
+var startBtn = document.getElementById('#startBtn');
+var startPage = document.getElementById('#startPage');
+var questionEl = document.getElementById('#question');
+var answerEl = document.getElementById('#answer');
+var timer = document.getElementById('#timer');
+var timeLeft = 60;
+var questions = ["What is JavaScript?, Who founded JavaScript?, Why is JavaScript important?, When was JavaScript first introduced?"];
+var answers = ["A1, A2, A3, A4"];
 
+function renderQuestion() {
+    var selected = Math.floor(Math.random() * questions.length);
+    questionEl.children[0];
+}
+
+
+// // Creating the questions using objects and arrays
+// var myQuestions = [
+//     // question 1 with answer choices and correct answer
+//     {
+//         question: "Who?",
+//         answer: ["A", "B", "C", "D"],
+//         correct: 1
+//     },
+//     // question 2 with answer choices and correct answer
+//     {
+//         question: "Who?",
+//         answer: ["A", "B", "C", "D"],
+//         correct: 2
+//     },
+//     // question 3 with answer choices and correct answer
+//     {
+//         question: "Who?",
+//         answer: ["A", "B", "C", "D"],
+//         correct: 0
+//     },
+//     // question 4 with answer choices and correct answer
+//     {
+//         question: "Who?",
+//         answer: ["A", "B", "C", "D"],
+//         correct: 2
+//     },
+//     // question 5 with answer choices and correct answer
+//     {
+//         question: "Who?",
+//         answer: ["A", "B", "C", "D"],
+//         correct: 3
+//     },
+// ];
 
 
 // Once start button is clicked, start timer and present first question
-startButton.addEventListener('click', currentQuestion) {
-    // Timer that counts down from 60
-    function countdown() {
-        var timeLeft = 60;
-
-        // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-        var timeInterval = setInterval(function () {
-            // As long as the `timeLeft` is greater than 1
-            if (timeLeft > 1) {
-                // Set the `textContent` of `timerEl` to show the remaining seconds
-                timerEl.textContent = timeLeft + ' seconds remaining';
-                // Decrement `timeLeft` by 1
-                timeLeft--;
-            } else if (timeLeft === 1) {
-                // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-                timerEl.textContent = timeLeft + ' second remaining';
-                timeLeft--;
-            } else {
-                // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-                timerEl.textContent = '';
-                // Use `clearInterval()` to stop the timer
-                clearInterval(timeInterval);
-                // Call the `displayMessage()` function
-                displayMessage();
-            }
+startBtn.addEventListener('click', startQuiz) {
+    // Start Timer
+    function startTimer() {
+        var timer = setInterval(() => {
+        timeLeft--
+        displayTime.textContent = timeLeft + " seconds remaining..."
         }, 1000);
     }
+
+    getQuestions() {
+        for (var i = 0; i > 0; i--) {
+            var element
+        }
+    }
+    // getQuestions();
+    // // loop for the questions
+    // for (var i = 0; i < myQuestions.length; i++) {
+    //     var element = myQuestions[i];
+    //     question.textContent = element.question;
+    //     // loop for the answers for each question
+    //     for (var j = 0; j < answer.length; j++) {
+    //         answer[j].textContent = element.answer;
+    //     }
+    // }
+}
+
+function startQuiz() {
+
+    startTimer();
 }
 
 
 
-// Displaying the questions using objects and arrays
-// Repeat for the other questions
-var myQuestions = [
-    // question 1 with answer choices and correct answer
-    {
-        question: "Who?",
-        answer: {
-            A: "A",
-            B: "B",
-            C: "C",
-            D: "D",
-        },
-        correctAnswer: 1
-    },
-    // question 2 with answer choices and correct answer
-    {
-        question: "What?",
-        answer: {
-            A: "A",
-            B: "B",
-            C: "C",
-            D: "D",
-        },
-        correctAnswer: 2
-    },
-    // question 3 with answer choices and correct answer
-    {
-        question: "When?",
-        answer: {
-            A: "A",
-            B: "B",
-            C: "C",
-            D: "D",
-        },
-        correctAnswer: 3
-    },
-    // question 4 with answer choices and correct answer
-    {
-        question: "Where?",
-        answer: {
-            A: "A",
-            B: "B",
-            C: "C",
-            D: "D",
-        },
-        correctAnswer: 4
-    },
-    // question 5 with answer choices and correct answer
-    {
-        question: "How?",
-        answer: {
-            A: "A",
-            B: "B",
-            C: "C",
-            D: "D",
-        },
-        correctAnswer: 3
-    },
-    // question 6 with answer choices and correct answer
-    {
-        question: "Why?",
-        answer: {
-            A: "A",
-            B: "B",
-            C: "C",
-            D: "D",
-        },
-        correctAnswer: 2
-    },
-];
+
+// Collect answers and store highscores to localStorage
