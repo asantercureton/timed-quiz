@@ -15,7 +15,16 @@ var availableQuestions = [];
 
 // Creating the questions using objects and arrays
 var myQuestions = [
-    // question 1 with answer choices and correct answer
+    // question 5 with answer choices and correct answer
+    {
+        question: "How can you create a variable in JavaScript?",
+        choice1: 'var userName = "John";',
+        choice2: 'userName = John;',
+        choice3: 'create userName for John;',
+        choice4: 'create userName = "John";',
+        answer: 1
+    },    
+    // question 1 with answer choices and correct answer    
     {
         question: "When was JavaScript's official release year?",
         choice1: '1988',
@@ -26,7 +35,7 @@ var myQuestions = [
     },
     // question 2 with answer choices and correct answer
     {
-        question: "What script is JavaScript called??",
+        question: "What script is JavaScript called?",
         choice1: 'Exterior JavaScript',
         choice2: 'Internal JavaScript',
         choice3: 'Interior JavaScript',
@@ -51,38 +60,29 @@ var myQuestions = [
         choice4: 'Guido van Rossum',
         answer: 2
     },
-    // question 5 with answer choices and correct answer
-    {
-        question: "How can you create a variable in JavaScript",
-        choice1: 'var userName = "John";',
-        choice2: 'userName = John;',
-        choice3: 'create userName for John;',
-        choice4: 'create userName = "John";',
-        answer: 1
-    },
 ];
 
-
-// // start quiz & timer and present first question with choices
-// startQuiz = () => {
-//     // Start Timer
-//     if(timeLeft > 0) {
-//     var timer = setInterval(function() => {
-//         timeLeft--;
-//         document.getElementById('timer').innerHTML = timeLeft + " seconds remaining...";
-//     }, 1000);
-//     questionCounter = 0
-//     availableQuestions = [...myQuestions]
-//     nextQuestion();
-//     // Stop Timer
-//     } else {
-//         clearInterval(timeLeft);
-//     }
-// }
+setTimeout(startQuiz(), 1500);
+// start quiz & timer and present first question with choices
+function startQuiz() {
+    // Start Timer
+    if (timeLeft >= 0) {
+        var timer = setInterval(() => {
+            timeLeft--;
+            document.getElementById('timer').innerHTML = timeLeft + " seconds remaining...";
+        }, 1000);
+        questionCounter = 0
+        availableQuestions = [...myQuestions]
+        nextQuestion();
+        // Stop Timer
+    } else if (timeLeft <= 0) {
+        clearInterval(timeLeft);
+    }
+}
 
 // Generate next question
-nextQuestion = () => {
-    if(availableQuestions === 0) {
+function nextQuestion() {
+    if (availableQuestions === 0) {
         // Save remaining time to localStorage as a score
         localStorage.setItem('mostRecentScore', time)
         // Display highscore to html
@@ -96,7 +96,7 @@ nextQuestion = () => {
     question.innerText = currentQuestion.question;
 
     choices.forEach(choice => {
-        var number = choice.dataset('number');
+        var number = choice.dataset.number;
         choice.innerText = currentQuestion['choice' + number];
     })
 
@@ -104,6 +104,7 @@ nextQuestion = () => {
     acceptingAnswers = true
 }
 
+// Selecting choices
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
         if (!acceptingAnswers)
@@ -115,18 +116,19 @@ choices.forEach(choice => {
         console.log('ANSWER', chosenAnswer);
     })
 });
-        // var classToApply = chosenAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
-//         if(classToApply === 'incorrect') {
-//             timeLeft = timeLeft - 5;
-//         }
-        
-//         chosenChoice.parentElement('choice-container').classlist.add(classToApply)
+        var classToApply = chosenAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
-//         setTimeout(() => {
-//         chosenChoice.parentElement.classlist.remove(classToApply)
-//             newQuestion();
-//     }, 1000)    
-// });
+        if (classToApply === 'incorrect') {
+            timeLeft = timeLeft - 5;
+        }
+
+        chosenChoice.parentElement('choice-container').classlist.add(classToApply)
+
+        setTimeout(() => {
+            chosenChoice.parentElement.classlist.remove(classToApply);
+            console.log('CHOSEN', chosenChoice);
+            newQuestion();
+        }, 1000)
 
 // Need to append highscores

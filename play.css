@@ -35,6 +35,8 @@
     padding: 15px;
     margin-bottom: 20px;
     font-size: 175%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #timer {
@@ -54,11 +56,11 @@
 }
 
 .correct {
-    background-color: yellowgreen;
+    background: yellowgreen;
 }
 
 .incorrect {
-    background-color: red;
+    background: red;
 }
 
 @media screen and (max-width: 768px) {
