@@ -10,10 +10,10 @@ Designed a timed quiz powered by Javascript on the fundamentals on Javascript.
 
 
 ## Links
-<!-- [Source Code](https://github.com/asantercureton/timed-quiz)
+[Source Code](https://github.com/asantercureton/timed-quiz)
 
 
-[Description Link](https://asantercureton.github.io/personal-portfolio/) -->
+[Description Link](https://asantercureton.github.io/timed-quiz/)
 
 
 ## Usage
