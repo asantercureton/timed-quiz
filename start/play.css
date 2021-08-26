@@ -20,7 +20,51 @@
 }
 
 .choice-prefix {
-    padding: 10px;
+    color: rgb(231, 189, 4);
+    text-align: center;
+    padding: 5px;
+}
+
+.choice-text {
+    color: rgb(231, 189, 4);
+    text-align: center;
+    padding: 5px;
+}
+
+#question {
+    color: rgb(231, 189, 4);
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 175%;
+}
+
+#timer {
     color: white;
     text-align: center;
+    margin-bottom: 10px;
+    font-size: 55%;
+}
+
+#display {
+    display: flex;
+    justify-content: space-between;
+}
+
+#display-item {
+    text-align: center;
+}
+
+.correct {
+    background-color: yellowgreen;
+}
+
+.incorrect {
+    background-color: red;
+}
+
+@media screen and (max-width: 768px) {
+    .choice-container {
+        min-width: 480px;
+    }
 }
