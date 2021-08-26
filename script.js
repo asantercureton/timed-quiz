@@ -25,47 +25,47 @@ function startTimer() {
 var myQuestions = [
     // question 1 with answer choices and correct answer
     {
-        question: "Who?",
-        choice1: 'A',
-        choice2: 'B',
-        choice3: 'C',
-        choice4: 'D',
+        question: "When was JavaScript's official release year?",
+        choice1: '1988',
+        choice2: '1995',
+        choice3: '2002',
+        choice4: '2021',
         answer: 1
     },
     // question 2 with answer choices and correct answer
     {
-        question: "Who?",
-        choice1: 'A',
-        choice2: 'B',
-        choice3: 'C',
-        choice4: 'D',
-        answer: 1
+        question: "What script is JavaScript called??",
+        choice1: 'Exterior JavaScript',
+        choice2: 'Internal JavaScript',
+        choice3: 'Interior JavaScript',
+        choice4: 'External JavaScript',
+        answer: 3
     },
     // question 3 with answer choices and correct answer
     {
-        question: "Who?",
-        choice1: 'A',
-        choice2: 'B',
-        choice3: 'C',
-        choice4: 'D',
-        answer: 1
+        question: "Is JavaScript Front-End or Back-End?",
+        choice1: 'Front-End',
+        choice2: 'Back-End',
+        choice3: 'Front-End and Back-End',
+        choice4: 'Neither',
+        answer: 2
     },
     // question 4 with answer choices and correct answer
     {
-        question: "Who?",
-        choice1: 'A',
-        choice2: 'B',
-        choice3: 'C',
-        choice4: 'D',
+        question: "Who developed JavaScript?",
+        choice1: 'Bill Gates',
+        choice2: 'Brendan Eich',
+        choice3: 'James Gosling',
+        choice4: 'Guido van Rossum',
         answer: 1
     },
     // question 5 with answer choices and correct answer
     {
-        question: "Who?",
-        choice1: 'A',
-        choice2: 'B',
-        choice3: 'C',
-        choice4: 'D',
+        question: "How can you create a variable in JavaScript",
+        choice1: 'var userName = "";',
+        choice2: 'userName = "";',
+        choice3: 'create userName;',
+        choice4: 'create userName = "";',
         answer: 1
     },
 ];
