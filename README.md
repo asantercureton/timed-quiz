@@ -25,7 +25,7 @@ Below is a screenshot of the project:
 
 ![Image of html](./images/code-quiz-start.jpg)
 
-
+![Image of html](./images/quiz-display.jpg)
 
 ---
 © 2021 Timed JavaScript Quiz.
