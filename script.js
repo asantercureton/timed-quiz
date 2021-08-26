@@ -62,7 +62,7 @@ var myQuestions = [
     },
 ];
 
-setTimeout(startQuiz(), 1500);
+setTimeout(startQuiz(), 1000);
 // start quiz & timer and present first question with choices
 function startQuiz() {
     // Start Timer
@@ -74,9 +74,14 @@ function startQuiz() {
         questionCounter = 0
         availableQuestions = [...myQuestions]
         nextQuestion();
+    } else if (timeLeft === 1) {
+        var timer = setInterval(() => {
+            timeLeft--;
+            document.getElementById('timer').innerHTML = timeLeft + " second remaining...";
+        }, 1000);
+    } else {
         // Stop Timer
-    } else if (timeLeft <= 0) {
-        clearInterval(timeLeft);
+        clearInterval(timer);
     }
 }
 
@@ -117,18 +122,19 @@ choices.forEach(choice => {
     })
 });
 
-        var classToApply = chosenAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+        // var classToApply = chosenAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
-        if (classToApply === 'incorrect') {
-            timeLeft = timeLeft - 5;
-        }
+        // if (classToApply === 'incorrect') {
+        //     timeLeft = timeLeft - 5;
+        // }
 
-        chosenChoice.parentElement('choice-container').classlist.add(classToApply)
+        // chosenChoice.parentElement('choice-container').classlist.add(classToApply)
 
-        setTimeout(() => {
-            chosenChoice.parentElement.classlist.remove(classToApply);
-            console.log('CHOSEN', chosenChoice);
-            newQuestion();
-        }, 1000)
+        // setTimeout(() => {
+        //     chosenChoice.parentElement.classlist.remove(classToApply);
+        //     console.log('CHOSEN', chosenChoice);
+        //     newQuestion();
+        // }, 1000)
 
 // Need to append highscores
+// Stop timer if time runs out

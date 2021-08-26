@@ -6,11 +6,16 @@
     height: 100vh;
     padding: 15px;
     margin-bottom: 20px;
-    font-size: 225%;
+    font-size: 200%;
 }
 
 #scores {
     width: 100%;
-    font-size: 125%;
+    font-size: 100%;
     color: rgb(204, 228, 250);
+}
+
+h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 350%;
 }
