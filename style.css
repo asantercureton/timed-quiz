@@ -10,7 +10,6 @@
 
 .container {
     background-image: linear-gradient(rgb(65, 163, 255), rgb(15, 0, 36));
-    /* background-color: rgb(15, 0, 36); */
     width: 100vw;
     height: 100vh;
     display: flex;

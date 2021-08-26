@@ -1,0 +1,16 @@
+.highscores {
+    color: rgb(231, 189, 4);
+    background-image: linear-gradient(rgb(65, 163, 255), rgb(15, 0, 36));
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 225%;
+}
+
+#scores {
+    width: 100%;
+    font-size: 125%;
+    color: rgb(204, 228, 250);
+}
