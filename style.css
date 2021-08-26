@@ -9,7 +9,8 @@
 
 
 .container {
-    background-color: rgb(15, 0, 36);
+    background-image: linear-gradient(rgb(65, 163, 255), rgb(15, 0, 36));
+    /* background-color: rgb(15, 0, 36); */
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -21,7 +22,7 @@
 #highscore-btn {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: rgba(168, 168, 168, 0.5);
-    color: rgb(231, 189, 4);
+    color: rrgb(204, 228, 250);
     padding: 4px;
     border-radius: 7px;
     font-size: 65%;

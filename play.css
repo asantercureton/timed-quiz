@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     height: auto;
-    background-color: white;
+    background-color: rgb(204, 228, 250);
     font-size: 100%;
     border-radius: 5px;
     padding: 10px;
@@ -18,13 +18,13 @@
 }
 
 .choice-prefix {
-    color: rgb(231, 189, 4);
+    color: rgb(15, 0, 36);
     text-align: center;
     padding: 5px;
 }
 
 .choice-text {
-    color: rgb(231, 189, 4);
+    color: rgb(112, 92, 0);
     text-align: center;
     padding: 5px;
 }

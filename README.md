@@ -23,9 +23,9 @@ Presents user with a button to start the quiz and stores their highscore using l
 ## Screenshots
 Below is a screenshot of the project:
 
-![Image of html](./images/code-quiz-start.jpg)
+![Image of html](./images/code-quiz-start2.jpg)
 
-![Image of html](./images/quiz-display.jpg)
+![Image of html](./images/quiz-display2.jpg)
 
 ---
 © 2021 Timed JavaScript Quiz.
