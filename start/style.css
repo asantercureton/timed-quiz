@@ -39,27 +39,30 @@
     text-decoration: none;
 }
 
+
 #highscore-btn:hover {
     cursor: pointer;
     box-shadow: 0 0 1.5rem 0 rgb(231, 189, 4);
-    transition: transform 100rem;
+    transition: transform 100ms;
     transform: scale(1.17);
     color: rgb(68, 0, 255);
     background-color: rgb(231, 189, 4);
 }
 
+
 #start-btn:hover {
     cursor: pointer;
     box-shadow: 0 0 3rem 0 green;
-    transition: transform 120rem;
+    transition: transform 100ms;
     transform: scale(1.07);
     color: white;
     background-color: green;
 }
 
+
 h1 {
     color: rgb(231, 189, 4);
-    font-size: 4rem;
+    font-size: 5rem;
     margin-bottom: 50px;
     margin-top: 50px;
 }

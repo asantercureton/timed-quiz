@@ -1,9 +1,8 @@
 // Identify variables
-var startBtn = document.getElementById('#startBtn');
-var startPage = document.getElementById('#startPage');
-var questionEl = document.getElementById('#question');
-var answerEl = document.getElementById('#answer');
-var timer = document.getElementById('#timer');
+var startBtn = document.querySelector('#startBtn');
+var question = document.querySelector('#question');
+var answer = document.querySelector('#answer');
+var timer = document.querySelector('#timer');
 var timeLeft = 60;
 var questions = ["What is JavaScript?, Who founded JavaScript?, Why is JavaScript important?, When was JavaScript first introduced?"];
 var answers = ["A1, A2, A3, A4"];

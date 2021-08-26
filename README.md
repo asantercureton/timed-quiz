@@ -6,7 +6,7 @@ Timed Quiz
 
 
 ## Description
-Designed a timed quiz using Javascript.
+Designed a timed quiz powered by Javascript on the fundamentals on Javascript.
 
 
 ## Links
@@ -17,7 +17,7 @@ Designed a timed quiz using Javascript.
 
 
 ## Usage
-Displays information about me and my work experience, as well as provides my contact information and resume.
+Presents user with a button to start the quiz and stores their highscore using localStorage once completed. Users will have 60 seconds to complete the quiz.
 
 
 ## Screenshots
@@ -30,4 +30,4 @@ Below is a screenshot of the project:
 
 
 ---
-© 2021 Timed Quiz.
+© 2021 Timed Javascript Quiz.
