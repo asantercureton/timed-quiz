@@ -2,7 +2,7 @@
 Timed Quiz
 
 ## Name
-Timed Quiz
+Timed JavaScript Quiz
 
 
 ## Description
@@ -23,9 +23,9 @@ Presents user with a button to start the quiz and stores their highscore using l
 ## Screenshots
 Below is a screenshot of the project:
 
-![Image of html](./start/images/code-quiz-start.jpg)
+![Image of html](./images/code-quiz-start.jpg)
 
 
 
 ---
-© 2021 Timed Javascript Quiz.
+© 2021 Timed JavaScript Quiz.
