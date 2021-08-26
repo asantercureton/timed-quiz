@@ -52,7 +52,7 @@
 
 #start-btn:hover {
     cursor: pointer;
-    box-shadow: 0 0 3rem 0 green;
+    box-shadow: 0 0 18px 0 rgb(231, 189, 4);
     transition: transform 100ms;
     transform: scale(1.07);
     color: white;

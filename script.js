@@ -80,49 +80,53 @@ var myQuestions = [
 //     }
 // }
 
-// // Generate next question
-// nextQuestion = () => {
-//     if(availableQuestions === 0) {
-//         // Save remaining time to localStorage as a score
-//         localStorage.setItem('mostRecentScore', time)
-//         // Display highscore to html
-//         return window.location.assign('/highscores.html')
-//     }
-//     // Increase counter to increase the index to move to the next question
-//     questionCounter++
+// Generate next question
+nextQuestion = () => {
+    if(availableQuestions === 0) {
+        // Save remaining time to localStorage as a score
+        localStorage.setItem('mostRecentScore', time)
+        // Display highscore to html
+        return window.location.assign('/highscores.html')
+    }
+    // Increase counter to increase the index to move to the next question
+    questionCounter++
 
-//     var questionsIndex = Math.floor(Math.random() * availableQuestions.length);
-//     currentQuestion = availableQuestions[questionsIndex];
-//     question.innerText = currentQuestion.question;
+    var questionsIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionsIndex];
+    question.innerText = currentQuestion.question;
 
-//     choices.forEach(choice => {
-//         var number = choice.dataset('number');
-//         choice.innerText = currentQuestion['choice' + number];
-//     })
+    choices.forEach(choice => {
+        var number = choice.dataset('number');
+        choice.innerText = currentQuestion['choice' + number];
+    })
 
-//     availableQuestions.splice(questionsIndex, 1)
-//     acceptingAnswers = true
-// }
+    availableQuestions.splice(questionsIndex, 1)
+    acceptingAnswers = true
+}
 
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
-        if (!acceptingAnswers) 
-        return acceptingAnswers = false
+        if (!acceptingAnswers)
+            return acceptingAnswers = false
 
         var chosenChoice = e.target
-        var chosenAnswer = chosenChoice.dataset('number')
+        var chosenAnswer = chosenChoice.dataset[e];
         console.log('CHOSEN', chosenChoice);
-        })
-        var classToApply = chosenAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
-
-        if(classToApply === 'incorrect') {
-            timeLeft = timeLeft - 5;
-        }
-        
-        chosenChoice.parentElement('choice-container').classlist.add(classToApply)
-
-        setTimeout(() => {
-        chosenChoice.parentElement.classlist.remove(classToApply)
-            newQuestion();
-    }, 1000)    
+        console.log('ANSWER', chosenAnswer);
+    })
 });
+        // var classToApply = chosenAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+
+//         if(classToApply === 'incorrect') {
+//             timeLeft = timeLeft - 5;
+//         }
+        
+//         chosenChoice.parentElement('choice-container').classlist.add(classToApply)
+
+//         setTimeout(() => {
+//         chosenChoice.parentElement.classlist.remove(classToApply)
+//             newQuestion();
+//     }, 1000)    
+// });
+
+// Need to append highscores
