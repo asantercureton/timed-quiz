@@ -1,7 +1,7 @@
 // Identify variables from html
 var timer = document.getElementById('timer');
 var question = document.getElementById('question');
-// JSON.stringify instead??
+//  Need to make choices an array
 var choices = Array.from(document.querySelectorAll('.choice-text'));
 var timeLeft = 10;
 console.log('Time Left', timeLeft);
@@ -15,7 +15,7 @@ var availableQuestions = [];
 
 // Creating the questions using objects and arrays
 var myQuestions = [
-    // question 5 with answer choices and correct answer
+    // question 1 with answer choices and correct answer
     {
         question: "How can you create a variable in JavaScript?",
         choice1: 'var userName = "John";',
@@ -23,46 +23,45 @@ var myQuestions = [
         choice3: 'create userName for John;',
         choice4: 'create userName = "John";',
         answer: 1
-    },    
-    // question 1 with answer choices and correct answer    
+    },
+    // question 2 with answer choices and correct answer    
     {
         question: "When was JavaScript's official release year?",
-        choice1: '1988',
-        choice2: '1995',
+        choice1: '1995',
+        choice2: '1988',
         choice3: '2002',
         choice4: '2021',
-        answer: 2
-    },
-    // question 2 with answer choices and correct answer
-    {
-        question: "What script is JavaScript called?",
-        choice1: 'Exterior JavaScript',
-        choice2: 'Internal JavaScript',
-        choice3: 'Interior JavaScript',
-        choice4: 'External JavaScript',
-        answer: 4
+        answer: 1
     },
     // question 3 with answer choices and correct answer
     {
-        question: "Is JavaScript Front-End or Back-End?",
-        choice1: 'Front-End',
-        choice2: 'Back-End',
-        choice3: 'Front-End and Back-End',
-        choice4: 'Neither',
-        answer: 3
+        question: "What script is JavaScript called?",
+        choice1: 'External JavaScript',
+        choice2: 'Internal JavaScript',
+        choice3: 'Interior JavaScript',
+        choice4: 'Exterior JavaScript',
+        answer: 1
     },
     // question 4 with answer choices and correct answer
     {
+        question: "Is JavaScript Front-End or Back-End?",
+        choice1: 'Front-End and Back-End',
+        choice2: 'Back-End',
+        choice3: 'Front-End',
+        choice4: 'Neither',
+        answer: 1
+    },
+    // question 5 with answer choices and correct answer
+    {
         question: "Who developed JavaScript?",
-        choice1: 'Bill Gates',
-        choice2: 'Brendan Eich',
+        choice1: 'Brendan Eich',
+        choice2: 'Bill Gates',
         choice3: 'James Gosling',
         choice4: 'Guido van Rossum',
-        answer: 2
+        answer: 1
     },
 ];
 
-// setTimeout(startQuiz(), 1000);
 // start quiz & timer and present first question with choices
 function startQuiz() {
     // Start Timer
@@ -78,26 +77,32 @@ function startQuiz() {
         } else {
             // Stop Timer
             clearInterval(timer);
+            document.getElementById('timer').innerHTML = "TIMES UP!";
         }
     }, 1000);
 }
 
+var questionsIndex = Math.floor(Math.random() * availableQuestions.length);
 // Generate next question
 function nextQuestion() {
-        // Increase counter to increase the index to move to the next question
+    // Increase counter to increase the index to move to the next question
     questionCounter++
+    console.log(questionCounter);
 
-    var questionsIndex = Math.floor(Math.random() * availableQuestions.length);
+    console.log('LENGTH', availableQuestions.length);
+    
+    
     currentQuestion = availableQuestions[questionsIndex];
-    question.innerText = currentQuestion.question;
+    question.innerText = currentQuestion.value;
 
-    choices.forEach(choice => {
-        var number = choice.dataset.number;
+    for (var i = 0; i < choice.length; i++) {
+        var number = choice.dataset.id;
         choice.innerText = currentQuestion['choice' + number];
-    })
+        console.log('NUMBER', number);
+        console.log('INDEX', questionsIndex);
+        availableQuestions.splice(questionsIndex, 1);
+    }
 
-    availableQuestions.splice(questionsIndex, 1)
-    acceptingAnswers = true
 }
 
 // Selecting choices
@@ -105,16 +110,15 @@ function nextQuestion() {
 // Grab value of the btn clicked
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
-        // if (!acceptingAnswers)
-        //     return acceptingAnswers = false
-
+        // Converting the chosen choice to an Int to compare to answer of question
         var chosenChoice = parseInt(e.target.id);
         var questionAnswer = myQuestions[questionCounter].answer;
         console.log('CHOSEN', chosenChoice);
         console.log('ANSWER', questionAnswer);
 
         if (chosenChoice === questionAnswer) {
-            availableQuestions = [...myQuestions]
+            availableQuestions = [myQuestions[e]];
+            console.log('AVAILABLE', availableQuestions);
             nextQuestion();
         } else {
             timeLeft -= 5;
@@ -122,22 +126,8 @@ choices.forEach(choice => {
     })
 });
 
-        // var classToApply = chosenAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
-
-        // if (classToApply === 'incorrect') {
-        //     timeLeft = timeLeft - 5;
-        // }
-
-        // chosenChoice.parentElement('choice-container').classlist.add(classToApply)
-
-        // setTimeout(() => {
-        //     chosenChoice.parentElement.classlist.remove(classToApply);
-        //     console.log('CHOSEN', chosenChoice);
-        //     newQuestion();
-        // }, 1000)
 
 // Need to append highscores
-// Stop timer if time runs out
 
 
 // if (availableQuestions === 0) {
