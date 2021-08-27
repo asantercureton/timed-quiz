@@ -3,7 +3,7 @@ var timer = document.getElementById('timer');
 var question = document.getElementById('question');
 // JSON.stringify instead??
 var choices = Array.from(document.querySelectorAll('.choice-text'));
-var timeLeft = 60;
+var timeLeft = 10;
 console.log('Time Left', timeLeft);
 console.log('Choices', choices);
 
@@ -62,38 +62,29 @@ var myQuestions = [
     },
 ];
 
-setTimeout(startQuiz(), 1000);
+// setTimeout(startQuiz(), 1000);
 // start quiz & timer and present first question with choices
 function startQuiz() {
     // Start Timer
-    if (timeLeft >= 0) {
-        var timer = setInterval(() => {
-            timeLeft--;
-            document.getElementById('timer').innerHTML = timeLeft + " seconds remaining...";
-        }, 1000);
-        questionCounter = 0
-        availableQuestions = [...myQuestions]
-        nextQuestion();
-    } else if (timeLeft === 1) {
-        var timer = setInterval(() => {
-            timeLeft--;
+    var timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById('timer').innerHTML = timeLeft + " seconds remaining...";
+        if (timeLeft > 1) {
+            // questionCounter = 0
+            // availableQuestions = [...myQuestions]
+            // nextQuestion();
+        } else if (timeLeft == 1) {
             document.getElementById('timer').innerHTML = timeLeft + " second remaining...";
-        }, 1000);
-    } else {
-        // Stop Timer
-        clearInterval(timer);
-    }
+        } else {
+            // Stop Timer
+            clearInterval(timer);
+        }
+    }, 1000);
 }
 
 // Generate next question
 function nextQuestion() {
-    if (availableQuestions === 0) {
-        // Save remaining time to localStorage as a score
-        localStorage.setItem('mostRecentScore', time)
-        // Display highscore to html
-        return window.location.assign('/highscores.html')
-    }
-    // Increase counter to increase the index to move to the next question
+        // Increase counter to increase the index to move to the next question
     questionCounter++
 
     var questionsIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -110,15 +101,24 @@ function nextQuestion() {
 }
 
 // Selecting choices
+// Clicks button
+// Grab value of the btn clicked
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
-        if (!acceptingAnswers)
-            return acceptingAnswers = false
+        // if (!acceptingAnswers)
+        //     return acceptingAnswers = false
 
-        var chosenChoice = e.target
-        var chosenAnswer = chosenChoice.dataset[e];
+        var chosenChoice = parseInt(e.target.id);
+        var questionAnswer = myQuestions[questionCounter].answer;
         console.log('CHOSEN', chosenChoice);
-        console.log('ANSWER', chosenAnswer);
+        console.log('ANSWER', questionAnswer);
+
+        if (chosenChoice === questionAnswer) {
+            availableQuestions = [...myQuestions]
+            nextQuestion();
+        } else {
+            timeLeft -= 5;
+        }
     })
 });
 
@@ -138,3 +138,13 @@ choices.forEach(choice => {
 
 // Need to append highscores
 // Stop timer if time runs out
+
+
+// if (availableQuestions === 0) {
+//     // Save remaining time to localStorage as a score
+//     localStorage.setItem('mostRecentScore', JSON.stringify(time))
+//     // Display highscore to html
+//     return window.location.assign('/highscores.html')
+// }
+
+startQuiz();
