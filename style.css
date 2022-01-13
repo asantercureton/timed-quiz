@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     font-size: 120%;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 
@@ -79,11 +78,12 @@ h2 {
     width: 100%;
     height: auto;
     background-color: rgb(204, 228, 250);
-    font-size: 100%;
+    font-size: 30px;
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-family: sans-serif;
 }
 
 .choice-container:hover {
@@ -95,13 +95,11 @@ h2 {
 
 .choice-prefix {
     color: rgb(15, 0, 36);
-    text-align: center;
     padding: 5px;
 }
 
 .choice-text {
     color: rgb(112, 92, 0);
-    text-align: center;
     padding: 5px;
 }
 
@@ -113,6 +111,8 @@ h2 {
     font-size: 175%;
     display: flex;
     flex-wrap: wrap;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
 
 #timer {
@@ -157,7 +157,7 @@ h2 {
 }
 
 h3 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: sans-serif;
     font-size: 350%;
 }
 
