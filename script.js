@@ -2,7 +2,7 @@
 var timer = document.getElementById('timer');
 var question = document.getElementById('question');
 //  Need to make choices an array
-var choices = Array.from(document.querySelectorAll('.choice-text'));
+var choices = document.querySelectorAll('.choice-text');
 var timeLeft = 10;
 console.log('Time Left', timeLeft);
 console.log('Choices', choices);
@@ -80,51 +80,62 @@ function startQuiz() {
             document.getElementById('timer').innerHTML = "TIMES UP!";
         }
     }, 1000);
-}
-
-var questionsIndex = Math.floor(Math.random() * availableQuestions.length);
-// Generate next question
-function nextQuestion() {
-    // Increase counter to increase the index to move to the next question
+    
+    var questionsIndex = Math.floor(Math.random() * availableQuestions.length);
     questionCounter++
     console.log(questionCounter);
 
     console.log('LENGTH', availableQuestions.length);
-    
-    
-    currentQuestion = availableQuestions[questionsIndex];
-    question.innerText = currentQuestion.value;
 
-    for (var i = 0; i < choice.length; i++) {
-        var number = choice.dataset.id;
-        choice.innerText = currentQuestion['choice' + number];
-        console.log('NUMBER', number);
-        console.log('INDEX', questionsIndex);
-        availableQuestions.splice(questionsIndex, 1);
-    }
+
+    currentQuestion = availableQuestions[questionsIndex];
+    question.innerText = currentQuestion;
 
 }
 
-// Selecting choices
-// Clicks button
-// Grab value of the btn clicked
-choices.forEach(choice => {
-    choice.addEventListener('click', e => {
-        // Converting the chosen choice to an Int to compare to answer of question
-        var chosenChoice = parseInt(e.target.id);
-        var questionAnswer = myQuestions[questionCounter].answer;
-        console.log('CHOSEN', chosenChoice);
-        console.log('ANSWER', questionAnswer);
+// Generate next question
+// function nextQuestion() {
+//     // Increase counter to increase the index to move to the next question
+//     questionCounter++
+//     console.log(questionCounter);
 
-        if (chosenChoice === questionAnswer) {
-            availableQuestions = [myQuestions[e]];
-            console.log('AVAILABLE', availableQuestions);
-            nextQuestion();
-        } else {
-            timeLeft -= 5;
-        }
-    })
-});
+//     console.log('LENGTH', availableQuestions.length);
+
+
+//     currentQuestion = availableQuestions[questionsIndex];
+//     question.innerText = currentQuestion.value;
+
+//     for (var i = 0; i < choice.length; i++) {
+//         var number = choice.dataset.id;
+//         choice.innerText = currentQuestion['choice' + number];
+//         console.log('NUMBER', number);
+//         console.log('INDEX', questionsIndex);
+//         availableQuestions.splice(questionsIndex, 1);
+//     }
+
+// }
+
+// getAttribute('data-language')
+// // Selecting choices
+// // Clicks button
+// // Grab value of the btn clicked
+// choices.forEach(choice => {
+//     choice.addEventListener('click', e => {
+//         // Converting the chosen choice to an Int to compare to answer of question
+//         var chosenChoice = parseInt(e.target.getAttribute('id'));
+//         var questionAnswer = myQuestions[questionCounter].answer;
+//         console.log('CHOSEN', chosenChoice);
+//         console.log('ANSWER', questionAnswer);
+
+//         if (chosenChoice === questionAnswer) {
+//             availableQuestions = [myQuestions[e]];
+//             console.log('AVAILABLE', availableQuestions);
+//             nextQuestion();
+//         } else {
+//             timeLeft -= 5;
+//         }
+//     })
+// });
 
 
 // Need to append highscores

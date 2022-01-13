@@ -74,6 +74,100 @@ h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.choice-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: rgb(204, 228, 250);
+    font-size: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0 18px 0 rgb(231, 189, 4);
+    transition: transform 100ms;
+    transform: scale(1.17);
+}
+
+.choice-prefix {
+    color: rgb(15, 0, 36);
+    text-align: center;
+    padding: 5px;
+}
+
+.choice-text {
+    color: rgb(112, 92, 0);
+    text-align: center;
+    padding: 5px;
+}
+
+#question {
+    color: rgb(231, 189, 4);
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 175%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#timer {
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 55%;
+}
+
+#display {
+    display: flex;
+    justify-content: space-between;
+}
+
+#display-item {
+    text-align: center;
+}
+
+.correct {
+    background: yellowgreen;
+}
+
+.incorrect {
+    background: red;
+}
+
+.highscores {
+    color: rgb(231, 189, 4);
+    background-image: linear-gradient(rgb(65, 163, 255), rgb(15, 0, 36));
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 200%;
+}
+
+#scores {
+    width: 100%;
+    font-size: 100%;
+    color: rgb(204, 228, 250);
+}
+
+h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 350%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .choice-container {
+        min-width: 480px;
+    }
+}
+
 
 /* footer {
     display: flex;
