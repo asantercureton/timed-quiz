@@ -100,23 +100,9 @@ function startQuiz() {
     // Loop through choice options
     for (let i = 0; i < choices.length; i++) {
         choices[i].innerHTML = currentQuestion.choice[i];
-
-        // Select choice
-        choices[i].addEventListener('click', e => {
-            // Converting the chosen choice to an Int to compare to answer of question
-            var chosenChoice = parseInt(e.target.getAttribute('id'));
-            var questionAnswer = myQuestions[i].answer;
-
-            console.log("target", chosenChoice);
-            if (chosenChoice === questionAnswer) {
-                // availableQuestions = [myQuestions[i]];
-                nextQuestion();
-            } else {
-                timeLeft -= 5;
-            }
-        })
     }
 
+    selectAnswer();
 }
 
 // Generate next question
@@ -129,48 +115,19 @@ function nextQuestion() {
 
     for (let j = 0; j < choices.length; j++) {
         choices[j].innerHTML = currentQuestion.choice[j];
-
-        choices[j].addEventListener('click', e => {
-            // Converting the chosen choice to an Int to compare to answer of question
-            var chosenChoice = parseInt(e.target.getAttribute('id'));
-            var questionAnswer = myQuestions[j].answer;
-
-            console.log("target", chosenChoice);
-            if (chosenChoice === questionAnswer) {
-                // availableQuestions = [myQuestions[i]];
-                nextQuestion();
-            } else {
-                timeLeft -= 5;
-            }
-        })
     }
-
-    
-
 }
 
-// getAttribute('data-language')
-// // Selecting choices
-// // Clicks button
-// // Grab value of the btn clicked
-// choices.forEach(choice => {
-//     choice.addEventListener('click', e => {
-//         // Converting the chosen choice to an Int to compare to answer of question
-//         var chosenChoice = parseInt(e.target.getAttribute('id'));
-//         var questionAnswer = myQuestions[questionCounter].answer;
-//         console.log('CHOSEN', chosenChoice);
-//         console.log('ANSWER', questionAnswer);
+function selectAnswer() {
+    var chosenChoice = parseInt(e.target.getAttribute('id'));
+    var questionAnswer = myQuestions[questionCounter].answer;
 
-//         if (chosenChoice === questionAnswer) {
-//             availableQuestions = [myQuestions[e]];
-//             console.log('AVAILABLE', availableQuestions);
-//             nextQuestion();
-//         } else {
-//             timeLeft -= 5;
-//         }
-//     })
-// });
-
+    if (chosenChoice === questionAnswer) {
+        nextQuestion();
+    } else {
+        timeLeft -= 5;
+    }
+}
 
 // Need to append highscores
 
@@ -183,3 +140,19 @@ function nextQuestion() {
 // }
 
 startQuiz();
+
+// Select choice
+choices[questionCounter].addEventListener('click', e => {
+    // Converting the chosen choice to an Int to compare to answer of question
+    var chosenChoice = parseInt(e.target.getAttribute('id'));
+    var questionAnswer = myQuestions[questionCounter].answer;
+
+    console.log("target", chosenChoice);
+    if (chosenChoice === questionAnswer) {
+        // availableQuestions = [myQuestions[i]];
+        nextQuestion();
+    } else {
+        timeLeft -= 5;
+    }
+});
+

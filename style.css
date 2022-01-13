@@ -90,7 +90,6 @@ h2 {
     cursor: pointer;
     box-shadow: 0 0 18px 0 rgb(231, 189, 4);
     transition: transform 100ms;
-    transform: scale(1.17);
 }
 
 .choice-prefix {
