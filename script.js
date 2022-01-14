@@ -3,15 +3,13 @@ var timer = document.getElementById('timer');
 var question = document.getElementById('question');
 //  Need to make choices an array
 var choices = document.querySelectorAll('h6');
-var timeLeft = 60;
-// console.log('Time Left', timeLeft);
-// console.log('Choices', choices);
-
+var timeLeft = 10;
 
 var currentQuestion = {};
-var acceptingAnswers = true;
 var questionCounter = 0;
 var availableQuestions = [];
+var highscoreBoard = [];
+let storageLocal;
 
 // Creating the questions using objects and arrays
 var myQuestions = [
@@ -77,16 +75,18 @@ function startQuiz() {
     // Start Timer
     var timer = setInterval(() => {
         timeLeft--;
-        document.getElementById('timer').innerHTML = timeLeft + " seconds remaining...";
 
         if (timeLeft > 1) {
-            questionCounter = 0;
-        } else if (timeLeft == 1) {
+            document.getElementById('timer').innerHTML = timeLeft + " seconds remaining...";
+        } else if (timeLeft === 1) {
             document.getElementById('timer').innerHTML = timeLeft + " second remaining...";
         } else {
             // Stop Timer
             clearInterval(timer);
             document.getElementById('timer').innerHTML = "TIMES UP!";
+            highscoreBoard.push(timeLeft);
+            // Display highscore to html
+            document.getElementById('scores').innerHTML = highscoreBoard;
         }
 
     }, 1000);
@@ -95,49 +95,47 @@ function startQuiz() {
     availableQuestions = [...myQuestions];
     currentQuestion = availableQuestions[questionCounter];
     // Display current question
-    question.innerHTML = currentQuestion.question;
+    question.innerText = currentQuestion.question;
 
     // Loop through choice options
     for (let i = 0; i < choices.length; i++) {
         choices[i].innerHTML = currentQuestion.choice[i];
     }
-
-    selectAnswer();
 }
 
 // Generate next question
 function nextQuestion() {
+
+
     // Increase counter to increase the index to move to the next question
-    questionCounter++;
+    questionCounter += 1;
 
-    currentQuestion = availableQuestions[questionCounter];
-    question.innerText = currentQuestion.question;
+    if (questionCounter < myQuestions.length) {
+        currentQuestion = availableQuestions[questionCounter];
+        question.innerText = currentQuestion.question;
 
-    for (let j = 0; j < choices.length; j++) {
-        choices[j].innerHTML = currentQuestion.choice[j];
-    }
-}
+        for (let j = 0; j < choices.length; j++) {
+            choices[j].innerHTML = currentQuestion.choice[j];
+        }
 
-function selectAnswer() {
-    var chosenChoice = parseInt(e.target.getAttribute('id'));
-    var questionAnswer = myQuestions[questionCounter].answer;
-
-    if (chosenChoice === questionAnswer) {
-        nextQuestion();
     } else {
-        timeLeft -= 5;
+        // Save remaining time to localStorage as a score
+        localStorage.setItem('mostRecentScore', JSON.stringify(timeLeft))
+        // Display highscore to html
+        document.getElementById('scores').innerHTML = timeLeft;
     }
+
+
+    // storageLocal = localStorage.setItem('mostRecentScore', JSON.stringify(highscoreBoard));
+    // console.log("highscore", storageLocal);
+
+
+    // Need to append highscores
+    // if (currentQuestion === undefined) {
+
+    // return window.location.assign('/highscores.html')
+    // }
 }
-
-// Need to append highscores
-
-
-// if (availableQuestions === 0) {
-//     // Save remaining time to localStorage as a score
-//     localStorage.setItem('mostRecentScore', JSON.stringify(time))
-//     // Display highscore to html
-//     return window.location.assign('/highscores.html')
-// }
 
 startQuiz();
 
@@ -147,9 +145,7 @@ choices[questionCounter].addEventListener('click', e => {
     var chosenChoice = parseInt(e.target.getAttribute('id'));
     var questionAnswer = myQuestions[questionCounter].answer;
 
-    console.log("target", chosenChoice);
     if (chosenChoice === questionAnswer) {
-        // availableQuestions = [myQuestions[i]];
         nextQuestion();
     } else {
         timeLeft -= 5;

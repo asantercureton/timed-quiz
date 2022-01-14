@@ -121,21 +121,24 @@ h2 {
     font-size: 55%;
 }
 
-#display {
+#display-item {
+    text-align: center;
     display: flex;
     justify-content: space-between;
 }
 
-#display-item {
-    text-align: center;
+#display-item > a {
+    text-decoration: none;
+    font-size: 30px;
+    color: yellow;
+    padding: 5px;
+    border: 1px solid yellow;
 }
 
-.correct {
-    background: yellowgreen;
-}
-
-.incorrect {
-    background: red;
+#display-item > a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(130, 25, 200);
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .highscores {
